@@ -1,0 +1,25 @@
+def min(A):
+    minValue = A[0]
+    for i in range(len(A)):
+        if A[i] <= minValue:
+            minValue = A[i]
+    return minValue
+
+
+def find_min(A):
+    minIndex = 0
+    for i in range(len(A)):
+        if A[i] <= A[minIndex]:
+            minIndex = i
+    return minIndex
+
+
+def SELECTION_SORT(A):
+    for i in range(len(A) - 1):
+        B = []
+        for j in range(i, len(A)):
+            B.append(A[j])
+        temp = A[i]
+        A[i] = A[i + find_min(B)]
+        A[i + find_min(B)] = temp
+    return A
